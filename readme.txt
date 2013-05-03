@@ -1,0 +1,1 @@
+First inital commit. The purpose of the class to provide a command prompt based simple way to access short cuts based on the location
