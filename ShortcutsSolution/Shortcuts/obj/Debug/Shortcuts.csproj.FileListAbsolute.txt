@@ -1,0 +1,9 @@
+C:\git\Shortcuts\ShortcutsSolution\Shortcuts\bin\Debug\Shortcuts.exe.config
+C:\git\Shortcuts\ShortcutsSolution\Shortcuts\obj\Debug\Shortcuts.csprojResolveAssemblyReference.cache
+C:\git\Shortcuts\ShortcutsSolution\Shortcuts\bin\Debug\Shortcuts.exe
+C:\git\Shortcuts\ShortcutsSolution\Shortcuts\bin\Debug\Shortcuts.pdb
+C:\git\Shortcuts\ShortcutsSolution\Shortcuts\bin\Debug\nunit.framework.dll
+C:\git\Shortcuts\ShortcutsSolution\Shortcuts\bin\Debug\VisualStudioGitIgnore.dll
+C:\git\Shortcuts\ShortcutsSolution\Shortcuts\bin\Debug\nunit.framework.xml
+C:\git\Shortcuts\ShortcutsSolution\Shortcuts\obj\Debug\Shortcuts.exe
+C:\git\Shortcuts\ShortcutsSolution\Shortcuts\obj\Debug\Shortcuts.pdb
