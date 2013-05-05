@@ -48,7 +48,13 @@
     <Compile Include="Class1.cs" />
     <Compile Include="ConsoleUpwirer.cs" />
     <Compile Include="DetectorFactories\HelpParameterDetectorAndHandlerFactoryTester.cs" />
-    <Compile Include="Handlers\AddHelpTextHandler.cs" />
+    <Content Include="Files\Class1.shortc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\Nested Folder\2nd Level Folder\Nested.shortc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="Handlers\ListTextHandlerTests.cs" />
     <Compile Include="Handlers\ErrorHandlerTests.cs" />
     <Compile Include="Handlers\HelpHandlerHandlerTests.cs" />
     <Compile Include="HandlerTest.cs" />

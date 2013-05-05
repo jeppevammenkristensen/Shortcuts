@@ -47,6 +47,7 @@
     <Compile Include="Handlers\Handler.cs" />
     <Compile Include="Handlers\HelpHandler.cs" />
     <Compile Include="DetectorFactories\HelpParameterDetectorAndHandlerFactory.cs" />
+    <Compile Include="Handlers\ListTextHandler.cs" />
     <Compile Include="IConsole.cs" />
     <Compile Include="JobRunner.cs" />
     <Compile Include="OperationType.cs" />
