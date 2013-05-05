@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace Shortcuts
 {
+    
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
             JobRunner.Run(args);

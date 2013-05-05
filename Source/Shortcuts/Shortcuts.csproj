@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,9 +47,11 @@
     <Compile Include="DetectorFactories\AddItemDetectorAndHandlerFactory.cs" />
     <Compile Include="DetectorFactories\ListParameterDetectorAndHandlerFactory.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Handlers\AddItemHandler.cs" />
     <Compile Include="Handlers\AddItemOptions.cs" />
     <Compile Include="Handlers\ErrorHandler.cs" />
+    <Compile Include="Handlers\FileHandler.cs" />
     <Compile Include="Handlers\Handler.cs" />
     <Compile Include="Handlers\HelpHandler.cs" />
     <Compile Include="DetectorFactories\HelpParameterDetectorAndHandlerFactory.cs" />

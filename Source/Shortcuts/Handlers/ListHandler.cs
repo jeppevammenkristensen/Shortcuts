@@ -1,31 +1,10 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 using Shortcuts.Resources;
 
 namespace Shortcuts.Handlers
 {
-    public abstract class FileHandler : Handler
-    {
-        private string _folderName;
-
-        protected FileHandler(string folderName)
-        {
-            _folderName = folderName;
-        }
-
-        protected DirectoryInfo GetAndEnsureDirectory(out bool isNewlyCreated)
-        {
-            isNewlyCreated = false;
-            var info = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, _folderName));
-            if (!info.Exists)
-            {
-                info.Create();
-            }
-            
-            return info;
-        }
-    }
-
     public class ListHandler : FileHandler
     {
         /// <summary>
@@ -49,10 +28,42 @@ namespace Shortcuts.Handlers
             bool isNewlyCreated;
             var info = GetAndEnsureDirectory(out isNewlyCreated);
 
-            foreach (var fileInfo in info.GetFiles("*.shortc", SearchOption.AllDirectories))
+            var files = info.GetFiles("*.shortc", SearchOption.AllDirectories)
+                .OrderBy(x => x.Name)
+                .Select((x, i) => new FileReference(x, i))
+                .ToDictionary(x => x.Id);
+
+            foreach (var reference in files.Values)
             {
-                _Console.WriteLine(Path.GetFileNameWithoutExtension(fileInfo.FullName));
+                _Console.WriteLine("{0:D4} {1}",reference.Id,Path.GetFileNameWithoutExtension(reference.FileInfo.FullName));
             }
+
+            _Console.WriteLine("Indtast talkode for at kopiere");
+            var result = _Console.ReadLine();
+            int id;
+            int.TryParse(result, out id);
+
+            using (var file = new StreamReader(files[id].FileInfo.OpenRead()))
+            {
+                var fileContent = file.ReadToEnd();
+                _Console.WriteLine(string.Format("{0}", fileContent));
+                Clipboard.SetText(fileContent);
+            }
+                
+
+
+        }
+    }
+
+    public class FileReference
+    {
+        public FileInfo FileInfo { get; set; }
+        public int Id { get; set; }
+
+        public FileReference(FileInfo fileInfo, int id)
+        {
+            FileInfo = fileInfo;
+            Id = id;
         }
     }
 }
