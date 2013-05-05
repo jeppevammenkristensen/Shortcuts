@@ -14,6 +14,7 @@ namespace Shortcuts
         {
             _parameterDetectors = new List<ParameterDetectorAndHandlerFactory>();
             _parameterDetectors.Add(new HelpParameterDetectorAndHandlerFactory());
+            _parameterDetectors.Add(new ListParameterDetectorAndHandlerFactory());
         }
 
         public static void Run(string [] args)

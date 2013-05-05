@@ -54,7 +54,8 @@
     <Content Include="Files\Nested Folder\2nd Level Folder\Nested.shortc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Compile Include="Handlers\ListTextHandlerTests.cs" />
+    <Compile Include="DetectorFactories\ListParameterDetectorAndHandlerFactoryTester.cs" />
+    <Compile Include="Handlers\ListHandlerTests.cs" />
     <Compile Include="Handlers\ErrorHandlerTests.cs" />
     <Compile Include="Handlers\HelpHandlerHandlerTests.cs" />
     <Compile Include="HandlerTest.cs" />

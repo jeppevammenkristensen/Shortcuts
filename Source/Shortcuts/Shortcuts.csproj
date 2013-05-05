@@ -43,11 +43,12 @@
   <ItemGroup>
     <Compile Include="ConsoleFactory.cs" />
     <Compile Include="DefaultConsole.cs" />
+    <Compile Include="DetectorFactories\ListParameterDetectorAndHandlerFactory.cs" />
     <Compile Include="Handlers\ErrorHandler.cs" />
     <Compile Include="Handlers\Handler.cs" />
     <Compile Include="Handlers\HelpHandler.cs" />
     <Compile Include="DetectorFactories\HelpParameterDetectorAndHandlerFactory.cs" />
-    <Compile Include="Handlers\ListTextHandler.cs" />
+    <Compile Include="Handlers\ListHandler.cs" />
     <Compile Include="IConsole.cs" />
     <Compile Include="JobRunner.cs" />
     <Compile Include="OperationType.cs" />
