@@ -7,7 +7,7 @@ using Shortcuts.Handlers;
 namespace Shortcuts.Tests.Handlers
 {
     [TestFixture]
-    public class ListHandlerTests : HandlerTest
+    public class ListHandlerTester : HandlerTester
     {
          [TearDown]
          public void TearDown()

@@ -2,7 +2,7 @@
 
 namespace Shortcuts.Tests
 {
-    public class HandlerTest
+    public class HandlerTester
     {
         protected Mock<IConsole> _consoleMock = new Mock<IConsole>();
 

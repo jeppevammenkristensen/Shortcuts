@@ -12,14 +12,16 @@ namespace Shortcuts
 
         static JobRunner()
         {
-            _parameterDetectors = new List<ParameterDetectorAndHandlerFactory>();
-            _parameterDetectors.Add(new HelpParameterDetectorAndHandlerFactory());
-            _parameterDetectors.Add(new ListParameterDetectorAndHandlerFactory());
+            _parameterDetectors = new List<ParameterDetectorAndHandlerFactory>
+                {
+                    new HelpParameterDetectorAndHandlerFactory(),
+                    new ListParameterDetectorAndHandlerFactory(),
+                    new AddItemDetectorAndHandlerFactory()
+                };
         }
 
         public static void Run(string [] args)
         {
-            
             try
             {
                 var parameterDetector = _parameterDetectors
@@ -32,9 +34,6 @@ namespace Shortcuts
             {
                 new ErrorHandler(ex.ToString(), args).Handle();
             }
-            
-
-            
         }
     }
 

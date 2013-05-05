@@ -5,7 +5,7 @@ using Shortcuts.Handlers;
 namespace Shortcuts.Tests.Handlers
 {
     [TestFixture]
-    public class ErrorHandlerTests : HandlerTest
+    public class ErrorHandlerTester : HandlerTester
     {
         [Test]
         public void ErrorHandler_CalledWithExceptionAndParameters_ReturnsExpectedResult()

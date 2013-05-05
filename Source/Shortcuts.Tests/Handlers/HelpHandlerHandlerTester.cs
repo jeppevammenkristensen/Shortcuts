@@ -5,7 +5,7 @@ using Shortcuts.Handlers;
 namespace Shortcuts.Tests.Handlers
 {
     [TestFixture]
-    public class HelpHandlerHandlerTests : HandlerTest
+    public class HelpHandlerHandlerTester : HandlerTester
     {
         [Test]
         public void Handle_CanBeCalled_ReturnsOneLineOfText()

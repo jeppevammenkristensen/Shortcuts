@@ -43,7 +43,11 @@
   <ItemGroup>
     <Compile Include="ConsoleFactory.cs" />
     <Compile Include="DefaultConsole.cs" />
+    <Compile Include="DetectorFactories\AddItemDetectorAndHandlerFactory.cs" />
     <Compile Include="DetectorFactories\ListParameterDetectorAndHandlerFactory.cs" />
+    <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="Handlers\AddItemHandler.cs" />
+    <Compile Include="Handlers\AddItemOptions.cs" />
     <Compile Include="Handlers\ErrorHandler.cs" />
     <Compile Include="Handlers\Handler.cs" />
     <Compile Include="Handlers\HelpHandler.cs" />
@@ -55,9 +59,18 @@
     <Compile Include="DetectorFactories\ParameterDetectorAndHandlerFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Defaults.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Defaults.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Resources\Defaults.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Defaults.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

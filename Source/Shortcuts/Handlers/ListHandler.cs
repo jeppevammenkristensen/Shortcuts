@@ -1,17 +1,37 @@
 ﻿using System;
 using System.IO;
-using System.Security.AccessControl;
+using Shortcuts.Resources;
 
 namespace Shortcuts.Handlers
 {
-    public class ListHandler : Handler
+    public abstract class FileHandler : Handler
     {
-        private readonly string _folderName;
+        private string _folderName;
 
+        protected FileHandler(string folderName)
+        {
+            _folderName = folderName;
+        }
+
+        protected DirectoryInfo GetAndEnsureDirectory(out bool isNewlyCreated)
+        {
+            isNewlyCreated = false;
+            var info = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, _folderName));
+            if (!info.Exists)
+            {
+                info.Create();
+            }
+            
+            return info;
+        }
+    }
+
+    public class ListHandler : FileHandler
+    {
         /// <summary>
         /// Constructor
         /// </summary>
-        public ListHandler() : this("Files")
+        public ListHandler() : this(Defaults.Default.FolderLocation)
         {
         }
 
@@ -19,28 +39,20 @@ namespace Shortcuts.Handlers
         /// Constructor
         /// </summary>
         /// <param name="folderName">The folder containing the files</param>
-        public ListHandler(string folderName)
+        public ListHandler(string folderName) : base(folderName)
         {
-            _folderName = folderName;
+            
         }
 
         public override void Handle()
         {
-            var info = GetAndEnsureDirectory();
+            bool isNewlyCreated;
+            var info = GetAndEnsureDirectory(out isNewlyCreated);
 
             foreach (var fileInfo in info.GetFiles("*.shortc", SearchOption.AllDirectories))
             {
-                _Console.WriteLine(Path.GetFileNameWithoutExtension(fileInfo.FullName)); 
+                _Console.WriteLine(Path.GetFileNameWithoutExtension(fileInfo.FullName));
             }
-        }
-
-        private DirectoryInfo GetAndEnsureDirectory()
-        {
-            var info = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, _folderName));
-            if (!info.Exists)
-                info.Create();
-
-            return info;
         }
     }
 }

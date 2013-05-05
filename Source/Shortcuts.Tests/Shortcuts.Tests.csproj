@@ -45,8 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="ConsoleUpwirer.cs" />
+    <Compile Include="DetectorFactories\AddItemDetectorAndHandlerFactoryTester.cs" />
     <Compile Include="DetectorFactories\HelpParameterDetectorAndHandlerFactoryTester.cs" />
     <Content Include="Files\Class1.shortc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -55,9 +55,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Include="DetectorFactories\ListParameterDetectorAndHandlerFactoryTester.cs" />
-    <Compile Include="Handlers\ListHandlerTests.cs" />
-    <Compile Include="Handlers\ErrorHandlerTests.cs" />
-    <Compile Include="Handlers\HelpHandlerHandlerTests.cs" />
+    <Compile Include="Handlers\AddItemHandlerTester.cs" />
+    <Compile Include="Handlers\ListHandlerTester.cs" />
+    <Compile Include="Handlers\ErrorHandlerTester.cs" />
+    <Compile Include="Handlers\HelpHandlerHandlerTester.cs" />
     <Compile Include="HandlerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

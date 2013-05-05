@@ -17,7 +17,7 @@ namespace Shortcuts.Tests.DetectorFactories
         public void IsMatch_ContainParameter_ReturnsMatch(string input)
         {
             var result = CreateSubject();
-            string[] arguments = new string[] { input };
+            var arguments = new[] { input };
             Assert.That(result.IsMatch(arguments), Is.True);
         }
 
