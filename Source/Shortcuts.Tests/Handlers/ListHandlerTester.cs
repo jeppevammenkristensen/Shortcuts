@@ -24,8 +24,8 @@ namespace Shortcuts.Tests.Handlers
              using (this.StartMockedConsole())
              {
                  var input = new List<string>();
-                 _consoleMock.Setup(x => x.WriteLine(It.IsAny<string>()))
-                             .Callback((string arg1, string[] arg2) => input.Add(arg1));
+                 _console.Setup(x => x.WriteLine(It.IsAny<string>()))
+                             .Callback((string arg1, object[] arg2) => input.Add(arg1));
                  handler.Handle();
 
                  Assert.That(input, Has.Count.EqualTo(2));

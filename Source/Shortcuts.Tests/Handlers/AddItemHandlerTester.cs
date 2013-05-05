@@ -3,12 +3,16 @@ using System.IO;
 using Moq;
 using NUnit.Framework;
 using Shortcuts.Handlers;
+using Shortcuts.Tests.Extensions;
 
 namespace Shortcuts.Tests.Handlers
 {
     [TestFixture]
     public class AddItemHandlerTester : HandlerTester
     {
+        private static readonly string OptionsDefaultName = "/Sub1/Sub2/SomeName";
+        private static string OptionsTextName = "Sometext";
+
         [TearDown]
         public void TearDown()
         {
@@ -18,19 +22,46 @@ namespace Shortcuts.Tests.Handlers
         }
 
         [Test]
-        public void Handle_NameAndText_PromptAndReceive()
+        public void Handle_NameAndTextNotInput_ReceiveThem()
         {
             using (StartMockedConsole())
             {
-                _consoleMock.Setup(x => x.WriteLine(It.IsAny<string>())); //.Callback((string arg1, string arg2)
-                    // => )
+                var handler = new AddItemHandler(new AddItemOptions(string.Empty, string.Empty),"AddItemHandler");
 
-                var handler = new AddItemHandler(new AddItemOptions("/Sub1/Sub2/SomeName", "SomeText"), "AdditemHandler");
+                _console.Setup(x => x.ReadLine()).ReturnsInOrder(
+                    OptionsDefaultName,
+                    OptionsTextName);
+
                 handler.Handle();
+                Assert.That(handler.Options.Name,Is.EqualTo(OptionsDefaultName));
+                Assert.That(handler.Options.Text, Is.EqualTo(OptionsTextName));
 
-                Assert.That(new FileInfo(Path.Combine(Environment.CurrentDirectory,"AdditemHandler","Sub1","Sub2","SomeName.shortc")).Exists, Is.True);
+                AssertFileCreatedAtCorrectLocation();
 
-                
+                _console.Verify(x => x.WriteLine(Resources.Resources.AddItemHandler_AddName));
+                _console.Verify(x => x.WriteLine(Resources.Resources.AddItemHandler_AddText));
+                _console.Verify(x => x.WriteLine(Resources.Resources.AddItemHandler_ShortcutCreated));
+            }
+        }
+
+        [Test]
+        public void Handle_NameAndText_PromptAndReceive()
+        {
+            var handler = new AddItemHandler(new AddItemOptions(OptionsDefaultName, "SomeText"), "AdditemHandler");
+            handler.Handle();
+
+            AssertFileCreatedAtCorrectLocation();
+        }
+
+        private static void AssertFileCreatedAtCorrectLocation()
+        {
+            var result = new FileInfo(Path.Combine(Environment.CurrentDirectory, "AdditemHandler", "Sub1", "Sub2",
+                                                   "SomeName.shortc"));
+
+            Assert.That(result.Exists, Is.True, result.FullName);
+            using (var reader = new StreamReader(result.OpenRead()))
+            {
+                reader.ReadToEnd().Contains(OptionsTextName);
             }
         }
     }

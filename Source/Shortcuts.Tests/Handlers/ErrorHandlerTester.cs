@@ -18,8 +18,8 @@ namespace Shortcuts.Tests.Handlers
                 var errorHandler = new ErrorHandler(exceptionText,args);
                 errorHandler.Handle();
                 
-                _consoleMock.Verify(x => x.WriteLine(It.IsAny<string>(),"a b"));
-                _consoleMock.Verify(x => x.WriteLine(exceptionText));
+                _console.Verify(x => x.WriteLine(It.IsAny<string>(),"a b"));
+                _console.Verify(x => x.WriteLine(exceptionText));
             }
         }
     }

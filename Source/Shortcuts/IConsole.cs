@@ -2,6 +2,7 @@
 {
     public interface IConsole
     {
-        void WriteLine(string value, params string[] paramters);
+        void WriteLine(string value, params object[] parameters);
+        string ReadLine();
     }
 }

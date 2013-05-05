@@ -11,13 +11,13 @@ namespace Shortcuts.Tests.Handlers
         public void Handle_CanBeCalled_ReturnsOneLineOfText()
         {
             
-            using (new ConsoleUpwirer(_consoleMock.Object))
+            using (new ConsoleUpwirer(_console.Object))
             {
                 var handler = new HelpHandler(new string[] { });
                 handler.Handle();    
             }
 
-            _consoleMock.Verify(x => x.WriteLine(It.IsAny<string>()), Times.Once());
+            _console.Verify(x => x.WriteLine(It.IsAny<string>()), Times.Once());
         }
     }
 }

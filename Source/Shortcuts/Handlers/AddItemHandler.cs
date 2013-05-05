@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Shortcuts.Extensions;
 using Shortcuts.Resources;
 
 namespace Shortcuts.Handlers
@@ -22,6 +23,8 @@ namespace Shortcuts.Handlers
 
         public override void Handle()
         {
+            EnsureOptions();
+
             bool directoryIsNewlyCreated = false;
             var currentDirectory = GetAndEnsureDirectory(out directoryIsNewlyCreated);
 
@@ -42,10 +45,27 @@ namespace Shortcuts.Handlers
 
             var fileInfo = new FileInfo(Path.Combine(currentDirectory.FullName, fileName + ".shortc"));
             if (fileInfo.Exists)
-                throw new InvalidOperationException(string.Format("{0} allready exists", Options.Name));
+                throw new InvalidOperationException(string.Format(Resources.Resources.AddItemHandler_NameAllreadyExists, Options.Name));
             using (var writer = new StreamWriter(fileInfo.Create()))
             {
                 writer.WriteLine(Options.Text);
+            }
+
+            _Console.WriteLine(Resources.Resources.AddItemHandler_ShortcutCreated);
+        }
+
+        private void EnsureOptions()
+        {
+            if (Options.Name.IsEmpty())
+            {
+                _Console.WriteLine(Resources.Resources.AddItemHandler_AddName);
+                Options.Name = _Console.ReadLine();
+            }
+
+            if (Options.Text.IsEmpty())
+            {
+                _Console.WriteLine(Resources.Resources.AddItemHandler_AddText);
+                Options.Text = _Console.ReadLine();
             }
         }
     }

@@ -55,6 +55,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Include="DetectorFactories\ListParameterDetectorAndHandlerFactoryTester.cs" />
+    <Compile Include="Extensions\MoqExtensions.cs" />
     <Compile Include="Handlers\AddItemHandlerTester.cs" />
     <Compile Include="Handlers\ListHandlerTester.cs" />
     <Compile Include="Handlers\ErrorHandlerTester.cs" />
