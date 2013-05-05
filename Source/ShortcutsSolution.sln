@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shortcuts", "Shortcuts\Shortcuts.csproj", "{CF40D272-1FF7-45C6-94D4-BD4EACCC7967}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shortcuts.Tests", "Shortcuts.Tests\Shortcuts.Tests.csproj", "{36E3DB3E-F410-4640-B4B4-FA9792938CD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{CF40D272-1FF7-45C6-94D4-BD4EACCC7967}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF40D272-1FF7-45C6-94D4-BD4EACCC7967}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF40D272-1FF7-45C6-94D4-BD4EACCC7967}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36E3DB3E-F410-4640-B4B4-FA9792938CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36E3DB3E-F410-4640-B4B4-FA9792938CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36E3DB3E-F410-4640-B4B4-FA9792938CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36E3DB3E-F410-4640-B4B4-FA9792938CD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
