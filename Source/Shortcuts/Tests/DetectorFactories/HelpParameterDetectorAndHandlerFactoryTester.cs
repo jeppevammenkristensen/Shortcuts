@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
+using Shortcuts.DetectorFactories;
+using Shortcuts.Handlers;
 
-namespace Shortcuts.Tests
+namespace Shortcuts.Tests.DetectorFactories
 {
     [TestFixture]
     public class HelpParameterDetectorAndHandlerFactoryTester
@@ -13,16 +15,16 @@ namespace Shortcuts.Tests
             Assert.That(sut.IsMatch(args), Is.True);
         }
 
-        private static Shortcuts.HelpParameterDetectorAndHandlerFactory CreateSubject()
+        private static HelpParameterDetectorAndHandlerFactory CreateSubject()
         {
-            return new Shortcuts.HelpParameterDetectorAndHandlerFactory();
+            return new HelpParameterDetectorAndHandlerFactory();
         }
 
         [Test]
         public void IsMatch_HasParameters_ReturnsFalse()
         {
             var sut = CreateSubject();
-            var args = new string[] {"Something"};
+            var args = new[] {"Something"};
             Assert.That(sut.IsMatch(args), Is.False);
         }
 

@@ -1,4 +1,6 @@
-﻿namespace Shortcuts
+﻿using Shortcuts.Handlers;
+
+namespace Shortcuts.DetectorFactories
 {
     public class HelpParameterDetectorAndHandlerFactory : ParameterDetectorAndHandlerFactory
     {

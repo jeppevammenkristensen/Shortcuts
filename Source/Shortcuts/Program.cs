@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,6 +9,8 @@ namespace Shortcuts
     {
         static void Main(string[] args)
         {
+            JobRunner.Run(args);
+            Console.ReadLine();
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Shortcuts
+﻿namespace Shortcuts.Handlers
 {
     public class HelpHandler : Handler
     {

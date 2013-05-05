@@ -49,17 +49,22 @@
   <ItemGroup>
     <Compile Include="ConsoleFactory.cs" />
     <Compile Include="DefaultConsole.cs" />
-    <Compile Include="Handler.cs" />
-    <Compile Include="HelpHandler.cs" />
-    <Compile Include="HelpParameterDetectorAndHandlerFactory.cs" />
+    <Compile Include="Handlers\ErrorHandler.cs" />
+    <Compile Include="Handlers\Handler.cs" />
+    <Compile Include="Handlers\HelpHandler.cs" />
+    <Compile Include="DetectorFactories\HelpParameterDetectorAndHandlerFactory.cs" />
     <Compile Include="IConsole.cs" />
-    <Compile Include="InputParameterParser.cs" />
+    <Compile Include="JobRunner.cs" />
     <Compile Include="OperationType.cs" />
-    <Compile Include="ParameterDetectorAndHandlerFactory.cs" />
+    <Compile Include="DetectorFactories\ParameterDetectorAndHandlerFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\HelpHandlerTests.cs" />
-    <Compile Include="Tests\HelpParameterDetectorAndHandlerFactoryTester.cs" />
+    <Compile Include="Tests\ConsoleUpwirer.cs" />
+    <Compile Include="Tests\Handlers\AddHelpTextHandler.cs" />
+    <Compile Include="Tests\Handlers\ErrorHandlerTests.cs" />
+    <Compile Include="Tests\Handlers\HelpHandlerHandlerTests.cs" />
+    <Compile Include="Tests\DetectorFactories\HelpParameterDetectorAndHandlerFactoryTester.cs" />
+    <Compile Include="Tests\HandlerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

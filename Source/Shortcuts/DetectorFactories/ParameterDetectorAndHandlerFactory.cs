@@ -1,6 +1,7 @@
 ﻿using System;
+using Shortcuts.Handlers;
 
-namespace Shortcuts
+namespace Shortcuts.DetectorFactories
 {
     public abstract class ParameterDetectorAndHandlerFactory
     {
