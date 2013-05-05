@@ -3,7 +3,7 @@
 namespace Shortcuts.Tests
 {
     [TestFixture]
-    public class HelpParameterTester
+    public class HelpParameterDetectorAndHandlerFactoryTester
     {
         [Test]
         public void IsMatch_IsHelpMatch_ReturnsTrue()
@@ -13,9 +13,9 @@ namespace Shortcuts.Tests
             Assert.That(sut.IsMatch(args), Is.True);
         }
 
-        private static HelpParameterDetectorAndHandlerFactory CreateSubject()
+        private static Shortcuts.HelpParameterDetectorAndHandlerFactory CreateSubject()
         {
-            return new HelpParameterDetectorAndHandlerFactory();
+            return new Shortcuts.HelpParameterDetectorAndHandlerFactory();
         }
 
         [Test]
