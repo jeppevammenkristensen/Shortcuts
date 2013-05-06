@@ -49,9 +49,6 @@ namespace Shortcuts.Handlers
                 _Console.WriteLine(string.Format("{0}", fileContent));
                 Clipboard.SetText(fileContent);
             }
-                
-
-
         }
     }
 
